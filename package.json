@@ -1,0 +1,59 @@
+{
+  "name": "@aether/dsh-browser-live",
+  "version": "0.1.0",
+  "description": "Codex-style live browser & desktop mirror for DeepSeek Harness: watch the agent work in real time and take over control.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json",
+    "./client": "./lib/client.js"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web"
+    },
+    "compatibility": {
+      "dsh": "0.1.7-rc.2",
+      "profiles": [
+        "web"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "test:client-loader": "node test/client-loader.mjs"
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh-tools": "^0.1.7-rc.2",
+    "@novnc/novnc": "^1.5.0",
+    "playwright-core": "^1.56.1",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "browser-use",
+    "computer-use",
+    "browser-mirror",
+    "live-view",
+    "cdp",
+    "screencast",
+    "novnc",
+    "vnc"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kuaizr/dsh-vps-live.git"
+  },
+  "author": {
+    "name": "Kuaizr",
+    "email": "kuaizhirui@gmail.com",
+    "url": "https://github.com/Kuaizr"
+  }
+}
