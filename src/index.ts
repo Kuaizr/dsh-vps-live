@@ -264,16 +264,21 @@ export async function apply(ctx: any): Promise<() => Promise<void>> {
     },
   })
 
-  const disposeDebug = debugFile !== undefined ? webServer.register({
+  const clientErrorLog = join(tmpdir(), 'dsh-browser-live-client-error.log')
+  const disposeDebug = webServer.register({
     kind: 'exact' as const,
     path: '/browser-live/debug-error',
     handler: async (req: IncomingMessage, res: ServerResponse): Promise<void> => {
       if (reject(req)) { res.statusCode = 401; res.end(); return }
       let body = ''
       req.on('data', chunk => { body += chunk })
-      req.on('end', () => { log(`CLIENT ERROR: ${body.slice(0, 4000)}`); res.statusCode = 204; res.end() })
+      req.on('end', () => {
+        try { appendFileSync(clientErrorLog, `${new Date().toISOString()} ${body.slice(0, 4000)}\n`) } catch {}
+        res.statusCode = 204
+        res.end()
+      })
     },
-  }) : () => {}
+  })
 
   const disposeHealth = webServer.register({
     kind: 'exact' as const,

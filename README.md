@@ -7,11 +7,11 @@ Watch your agent work in real time — with a virtual cursor — and take over c
 
 ---
 
-![Desktop Live](docs/images/desktop.png)
-*Desktop Live: the agent's full virtual desktop (dwm), streamed into the DSH web GUI.*
+![Panel entries](docs/images/sidebar-entries.png)
+*Browser Live and Desktop Live appear as panels in the web GUI's right sidebar.*
 
-![Browser mirror](docs/images/browser-mirror.jpg)
-*The agent's browser, mirrored frame-by-frame over CDP screencast.*
+![Desktop Live](docs/images/desktop-live.png)
+*Desktop Live: the agent's full virtual desktop (dwm + Firefox), streamed live into the DSH web GUI.*
 
 ## What it does
 
